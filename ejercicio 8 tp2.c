@@ -4,18 +4,23 @@
 
 int main() {
 	int i;
+    int opcion;
     char oracion[100];
     printf("Ingresa una oracion: ");
     fgets(oracion, sizeof(oracion), stdin);
     oracion[strcspn(oracion, "\n")] = 0;
 
-    int opcion;
-    printf("Selecciona una opcion:\n");
+	do{
+	printf("\n--- MENU PRINCIPAL ---\n");
     printf("1. Mostrar en mayuscula\n");
     printf("2. Mostrar en minuscula\n");
     printf("3. Mostrar alternando mayuscula y minuscula\n");
     printf("4. Mostrar comenzando las palabras en mayuscula\n");
+    printf("5. Finalizar programa\n");
+    
+    printf("Selecciona una opcion: ");
     scanf("%d", &opcion);
+    
 
     if(opcion == 1) {
         for(i = 0; oracion[i]; i++) {
@@ -51,9 +56,16 @@ int main() {
             }
         }
         printf("Oracion con palabras en mayuscula: %s\n", oracion);
-    } else {
-        printf("Opcion invalida\n");
-    }
+    } else if(opcion == 5){
+        printf("Saliendo del programa. Hasta pronto...");
+        return 0;
+    }else{
+    	printf("Opcion invalida");
+	}
+    
 
-    return 0;
+	}while (opcion != 0);
+
+
 }
+    
